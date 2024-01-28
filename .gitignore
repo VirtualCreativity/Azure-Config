@@ -92,3 +92,6 @@ target/
 
 # pyenv
 .python
+
+# sensitive environment variables etc
+.env

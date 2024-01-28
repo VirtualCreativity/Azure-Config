@@ -1,10 +1,17 @@
-import sys
+# import sys
+import os
+from dotenv import load_dotenv
 
 from azure.identity import DefaultAzureCredential # pip install azure-identity   # pip show azure-identity
 from azure.mgmt.web import WebSiteManagementClient # pip install azure-mgmt-web  # pip show azure-mgmt-web
 
 # from azure.mgmt.web.models import SiteAppSettings
 
+# Load environment variables from .env file
+load_dotenv()
+
+# Accessing variables
+openai_api_key = os.getenv("OPENAI_API_KEY")
 
 # Azure subscription ID
 subscription_id = '8a032147-7a98-452f-8c30-84ae213e3b9b' # VirtualCreativity 'your-subscription-id'
@@ -15,7 +22,7 @@ app_service_name = 'stat-gpt-v001'
 
 # Application setting to add/edit
 setting_name = 'OPENAI_API_KEY'
-setting_value = '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'
+setting_value = openai_api_key #'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'
 
 # Authenticate using default credentials
 # This will use your Azure CLI login, VSCode, or other configured authentication methods
